@@ -3,8 +3,8 @@ const { Post, User } = require('../models')
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const postData = await Post.findAll({
+    const blogPostData = await Post.findAll({
+      attributes: ['content'],
       include: [
         {
           model: User,
@@ -13,12 +13,12 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
+    // This serializes the data
+    const blogPosts = blogPostData.map((post) => post.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
+    // This renders the data into handlebars.
     res.render('homepage', { 
-      posts, 
+      blogPosts, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {

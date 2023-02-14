@@ -1,3 +1,10 @@
 <section>
-  {{#each posts}}<div class="post">{{this}}</div>{{/each}}
+  {{#each pblogPosts}}
+    <div class="post">
+      <h2>{{this.username}}</h2>
+      <p>
+        {{this.content}}
+      </p>
+    </div>
+  {{/each}}
 </section>
