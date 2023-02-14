@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
 
     // This serializes the data
     const blogPosts = blogPostData.map((post) => post.get({ plain: true }));
+    console.log('Data going to handlebars: ' + blogPosts);
 
     // This renders the data into handlebars.
     res.render('homepage', { 
@@ -22,6 +23,7 @@ router.get('/', async (req, res) => {
       logged_in: req.session.logged_in 
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 })
