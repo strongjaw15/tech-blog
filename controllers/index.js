@@ -5,7 +5,7 @@ const homeRoutes = require('./homeRoutes');
 
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
-router.get('*', (req, res)=>{
+router.use('*', (req, res)=>{
   res.status(404).json()
 })
 

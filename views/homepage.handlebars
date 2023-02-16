@@ -1,9 +1,9 @@
 <section>
-  {{#each pblogPosts}}
+  {{#each pblogPosts as |post|}}
     <div class="post">
-      <h2>{{this.username}}</h2>
+      <h2>{{post.username}}</h2>
       <p>
-        {{this.content}}
+        {{post.content}}
       </p>
     </div>
   {{/each}}
