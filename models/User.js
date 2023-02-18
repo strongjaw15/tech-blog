@@ -17,11 +17,11 @@ User.init(
       autoIncrement: true,
     },
     username: {
-      type: DataTypes.STRING,
+      type: DataTypes.CHAR,
       allowNull: false,
     },
     password: {
-      type: DataTypes.STRING,
+      type: DataTypes.CHAR,
       allowNull: false,
       validate: {
         len: [8],
@@ -31,7 +31,7 @@ User.init(
   {
     hooks: {
       beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        newUserData.password = await bcrypt.hash(newUserData.password, 11);
         return newUserData;
       },
       // beforeUpdate: async (updatedUserData) => {
