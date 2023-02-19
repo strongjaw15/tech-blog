@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const session = require('express-session');
 const { Post, User } = require('../models')
 
 router.get('/', async (req, res) => {
@@ -15,10 +16,10 @@ router.get('/', async (req, res) => {
     const blogPosts = blogPostData.map((post) => post.get({ plain: true }));
 
     // This renders the homepage data into handlebars.
-    console.log(req.session.logged_in)
+    console.log(req.session.loggedIn)
     res.render('homepage', { 
       blogPosts: blogPosts, 
-      logged_in: req.session.logged_in 
+      loggedIn: req.session.loggedIn 
     });
   } catch (err) {
     console.log(err)
