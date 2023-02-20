@@ -1,17 +1,18 @@
 <section>
   <div class="blogPost">
-    <h2>{{title}}</h2>
-    <p>{{content}}</p>
+    <h2>{{blogPost.title}}</h2>
+    <h3>{{blogPost.user.username}}</h3>
+    <p>{{blogPost.content}}</p>
   </div>
   <div class="commentBox">
-    <form>
+    <form id="commentForm">
       <label>Leave a Comment:</label>
-      <input type="text">
-      <input type="submit" value="post">
+      <input type="text" id="comment">
+      <input type="submit" value="Post">
     </form>
   </div>
   <div class="comments">
-    {{#each blogPost.comment}}
+    {{#each blogPost.comments}}
       <div class="comment">
         <h3>{{user.username}}</h3>
         <p>
