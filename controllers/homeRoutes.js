@@ -5,7 +5,7 @@ const { Post, User } = require('../models')
 router.get('/', async (req, res) => {
   try {
     const blogPostData = await Post.findAll({
-      attributes: ['title','content'],
+      attributes: ['title','content', 'id'],
       include: {
           model: User,
           attributes: ['username']
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     });
 
     // This serializes the data
-    const blogPosts = blogPostData.map((post) => post.get({ plain: true }));
+    const blogPosts = blogPostData.map((post) => post.get({plain: true}));
 
     // This renders the homepage data into handlebars.
     console.log(req.session.loggedIn)

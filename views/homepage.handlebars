@@ -1,7 +1,9 @@
 <section>
   {{#each blogPosts}}
     <div class="post">
-      <h2>{{title}}</h2>
+      <a href="/api/blogpost/{{id}}">
+        <h2>{{title}}</h2>
+      </a>
       <h3>{{user.username}}</h3>
       <p>
         {{content}}

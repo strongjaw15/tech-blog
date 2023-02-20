@@ -7,14 +7,14 @@ const login = async (event) => {
   const password = document.querySelector("#password").value
 
   if (username && password) {
+    console.log(username + password)
     const response = await fetch("/api/users/login", {
       method: "POST",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({username: username, password: password}),
       headers: {"Content-Type": "application/json"},
     });
     if (response.ok) {
-      // document.location.replace("/");
-      console.log(response)
+      document.location.replace("/");
     } else {
       alert(response.statusText);
     }

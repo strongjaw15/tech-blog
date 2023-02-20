@@ -1,0 +1,23 @@
+<section>
+  <div class="blogPost">
+    <h2>{{title}}</h2>
+    <p>{{content}}</p>
+  </div>
+  <div class="commentBox">
+    <form>
+      <label>Leave a Comment:</label>
+      <input type="text">
+      <input type="submit" value="post">
+    </form>
+  </div>
+  <div class="comments">
+    {{#each blogPost.comment}}
+      <div class="comment">
+        <h3>{{user.username}}</h3>
+        <p>
+          {{comment}}
+        </p>
+      </div>
+    {{/each}}
+  </div>
+</section>
