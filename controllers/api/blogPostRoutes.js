@@ -25,7 +25,13 @@ router.get('/:id', authentication, async (req, res) => {
     console.log(blogPosty)
     const blogPost = blogPosty.get({plain: true})
     console.log(blogPost)
-    res.render('blogpost', {blogPost, loggedIn:req.session.loggedIn})
+    res.render('blogpost', {
+      blogPost, 
+      loggedIn: req.session.loggedIn, 
+      post_id: req.params.id,
+      user_id: req.session.user_id, 
+      username: req.session.username
+    })
   } catch (error) {
     console.log(error)
     res.status(400).json(error)

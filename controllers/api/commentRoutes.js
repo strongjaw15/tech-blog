@@ -22,10 +22,10 @@ router.post("/", (req, res) => {
   Comment.create({
     content: req.body.content,
     user_id: req.session.user_id,
-    asteroid_id: req.body.asteroid_id,
+    post_id: req.body.post_id,
   })
     .then((comment) => {
-      res.json(comment);
+      res.status(200).json(comment);
     })
     .catch((err) => {
       res.status(500).json(err);

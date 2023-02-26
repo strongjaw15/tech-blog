@@ -21,4 +21,13 @@
       </div>
     {{/each}}
   </div>
+  <script>
+    // This defines a global JavaScript variable using the window object
+    window.blogPostData = {
+      post_id: {{post_id}},
+      user_id: {{user_id}},
+      username: '{{username}}'
+    };
+  </script>
+  <script src="/js/comment.js"></script>
 </section>
