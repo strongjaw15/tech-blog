@@ -1,12 +1,13 @@
 const router = require('express').Router()
 const authentication = require('../../utils/auth.js')
+const moment = require('moment')
 const {Post, User, Comment} = require('../../models')
 
 router.get('/:id', authentication, async (req, res) => {
   try {
-    const blogPosty = await Post.findOne({
+    const blogPostData2 = await Post.findOne({
       where: {id: req.params.id},
-      attributes: ['title','content', 'id'],
+      attributes: ['title','content', 'id', 'created_at'],
       include: [
         {
           model: User,
@@ -14,7 +15,7 @@ router.get('/:id', authentication, async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['comment'],
+          attributes: ['comment', 'created_at'],
           include: {
             model: User,
             attributes: ['username']
@@ -22,9 +23,17 @@ router.get('/:id', authentication, async (req, res) => {
         }
       ],
     })
-    // console.log(blogPosty)
-    const blogPost = blogPosty.get({plain: true})
-    // console.log(blogPost)
+
+    // This serializes the data and formats the date.
+    const blogPost = blogPostData2.get({plain: true})
+    blogPost.created_at = moment(blogPost.created_at).format('MMMM Do YYYY, h:mm a')
+    blogPost.comments = blogPost.comments.map((comment) => {
+      return {
+        ...comment,
+        created_at: moment(comment.created_at).format('MMMM Do YYYY, h:mm a')
+      }
+    })
+
     res.render('blogpost', {
       blogPost, 
       loggedIn: req.session.loggedIn, 

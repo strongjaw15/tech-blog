@@ -11,7 +11,9 @@ const PORT = process.env.PORT || 3001;
 
 const sess = {
   secret: ':v=.V*jMZkE(!QT3',
-  cookie: {maxAge: 86400000},
+  cookie: {
+    // maxAge: 86400000
+  },
   resave: false,
   saveUninitialized: false,
   store: new SequelizeStore({

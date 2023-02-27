@@ -1,19 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const { Asteroid, Comment, User } = require("../../models");
+const { Comment, User } = require("../../models");
 const authenticated = require("../../utils/auth");
 
 // Finds all comments
 
-router.get("/", (req, res) => {
-  Comment.findAll()
-    .then((comments) => {
-      res.json(comments);
-    })
-    .catch((err) => {
-      res.status(500).json(err);
-    });
-});
+// router.get("/", (req, res) => {
+//   Comment.findAll()
+//     .then((comments) => {
+//       res.json(comments);
+//     })
+//     .catch((err) => {
+//       res.status(500).json(err);
+//     });
+// });
 
 //Creates a new comment
 

@@ -1,0 +1,15 @@
+<section>
+  <button id="addNewPost">Add New Post</button>
+  {{#each userDataSerial.blogPosts}}
+    <div class="post">
+      <a href="/api/blogpost/{{id}}">
+        <h2>{{title}}</h2>
+      </a>
+      <h3>{{user.username}}</h3>
+      <h4>{{created_at}}</h4>
+      <p>
+        {{content}}
+      </p>
+    </div>
+  {{/each}}
+</section>

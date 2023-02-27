@@ -36,11 +36,6 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    console.log(`-----------------------------------------------
-    
-    user routes line 39 userData.id: ${userData.id}
-    
-    -----------------------------------------------`)
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.username = userData.username;
