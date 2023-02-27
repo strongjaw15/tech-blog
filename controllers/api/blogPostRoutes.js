@@ -22,9 +22,9 @@ router.get('/:id', authentication, async (req, res) => {
         }
       ],
     })
-    console.log(blogPosty)
+    // console.log(blogPosty)
     const blogPost = blogPosty.get({plain: true})
-    console.log(blogPost)
+    // console.log(blogPost)
     res.render('blogpost', {
       blogPost, 
       loggedIn: req.session.loggedIn, 

@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     const blogPosts = blogPostData.map((post) => post.get({plain: true}));
 
     // This renders the homepage data into handlebars.
-    console.log(req.session.loggedIn)
+    // console.log(req.session.loggedIn)
     res.render('homepage', { 
       blogPosts: blogPosts, 
       loggedIn: req.session.loggedIn 
