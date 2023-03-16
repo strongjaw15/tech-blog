@@ -6,13 +6,6 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-
 I wanted to create a full-stack server-side rendering blog site that used Handlebars.js and MySQL. This was a good exercise for me in bringing lots of aspets of full-stack web development together into one functional project that was coded 'from scratch.' I got behind on this project and essentially dropped it for several weeks while I learned react. The submitted version is not fully functional, and in the future I would love to come back and finish it to my satisfaction.
 
 ## Visuals
